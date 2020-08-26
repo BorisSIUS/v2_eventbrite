@@ -1,0 +1,63 @@
+<div class='container-fluid p-0 mt-1'>
+  <%if @event.promoted || current_user == @event.administrator || current_user.web_master %> 
+    <div class='d-flex flex-wrap w-100'>
+      <%= image_tag @event.scene, alt: 'scene', class: 'fat-hero-image img-fluid', style: 'width: 700px'%>
+      <!--<img class="w-75 fat-hero-image img-fluid " src='pexels-wendy-wei-1916821.jpg' alt='rock'>-->
+      <div class='w-35 d-flex border-top justify-content-center flex-column justify-content-lg-around p-5 h3'>
+        <p><%=@event.start_date%></p>
+        <p class='text-secondary'>by <%=@event.administrator.first_name + @event.administrator.last_name%></p>
+         <% if @event.is_free?%>
+          <p> GRATUIT </p>
+          <% else %>
+          <p> <b><%=@event.price%> €</b></p>
+          <% end %>
+      </div>
+    </div>
+    <div class='border-top w-100 pt-3 pb-3 d-flex justify-content-between'>
+      <div class='w-25 d-flex justify-content-around'>
+        <i class="fas fa-thumbs-up fa-2x mr-5"></i>
+        <i class="fas fa-hand-point-up fa-2x"></i>
+      </div>
+      <% if current_user == @event.administrator || current_user.web_master%>
+      <%= link_to "Administer", event_attendances_path(@event.id), class: 'btn btn-warning'%>
+      <%end%>
+      <% if current_user.web_master %>
+        <% unless @event.promoted %>
+        <%= link_to "Promouvoire", edit_event_promotion_path(@event.id), class: "btn btn-success"%>
+        <% end %>
+        <% unless @event.promoted == false %>
+        <%= link_to "Archiver", event_promotion_path(@event.id), method: :delete, class: "btn btn-success"%>          
+        <% end%>
+      <% end %>
+      <% unless @event.is_attending?(current_user) || current_user == @event.administrator%>
+      <%= link_to "Participer", new_event_attendance_path(@event.id), class: "btn btn-primary"%>
+      <% end %>
+    </div>  
+    <div class='border-top w-100 p-5 d-flex flex-wrap'>
+      <p class="w-75">
+        <%= @event.description%>
+      </p>
+      <ul>
+        <li>
+          <p><strong>Durée</strong>: <%= @event.duration %> min.</p>
+        </li>
+        <li>
+          <p><strong>Lieu</strong>: <%= @event.location %></p>
+        </li>
+        <li>
+          <p><strong>Contact</strong>: <%= @event.administrator.email %></p>
+        </li>
+      </ul>
+    </div>
+    <div class='w-100 border-top d-flex justify-content-start'>
+      <div class='w-50 d-flex justify-content-around'>
+        <i class="fab fa-twitter fa-2x m-2"></i>
+        <i class="fab fa-facebook fa-2x m-2"></i>
+        <i class="fab fa-instagram fa-2x m-2"></i>
+      </div>
+    </div>
+    <% else %>
+      <p>L'evenement est examiné par nos experts<p>
+      <%= link_to "Actualiser", event_path(@event.id), class: "btn btn-primary"%>
+    <% end %>
+  </div>

@@ -1,0 +1,21 @@
+<body>
+  <div class="jumbotron mt-5 overlay-div" style="background:transparent url('https://images.squarespace-cdn.com/content/v1/560fcdf9e4b0c37386d80d4d/1488821682346-DFFJGMGFOISQUAQY1C6A/ke17ZwdGBToddI8pDm48kJCjQoG9FpyFKOIxOxrY4_AUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYy7Mythp_T-mtop-vrsUOmeInPi9iDjx9w8K4ZfjXt2dpZ1RigxRDUyDNSlYg_vggwCcu8ksUXyxyMBKN6yDgaIOpYghpI-Ha_TwZsqqmJXng/0232+-+20160410.jpg?format=1000w') no-repeat center center /cover">
+    <div class="container" >
+    <h1 class="display-3 mb-2">Mot de passe oublié ?</h1>  
+
+    <div class='m-5'>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Send me reset password instructions" %>
+      </div>
+    <% end %>
+    </div>
+
+    <%= render "devise/shared/links" %>

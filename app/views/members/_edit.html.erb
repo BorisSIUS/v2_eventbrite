@@ -1,0 +1,23 @@
+<div class='container'>
+  <%= form_for @user, :url => member_path, method: :PATCH do |f| %>
+    <%= f.fields_for :avatar  do |p| %>
+        <label>Avatar :</label></br>
+        <%= p.file_field :avatar , :multiple => true, name: :avatar %>
+    <% end %>
+    <div class="form_group">
+        <label>Prénom :</label></br>
+        <%= f.text_field :first_name, class: 'form_control'%>
+    </div>
+    <div class="form_group">
+        <label>Nom :</label></br>
+        <%= f.text_field :last_name, class: 'form_control'%>
+    </div>
+    <div class="form_group">
+        <label>Bio : </label></br>
+        <%= f.text_field :description, class: 'form_control'%>
+    </div>
+    <div class="form_group">
+      <%= f.submit "Mettre à joure", class: "btn btn-primary m-3 w-25" %>
+    </div>
+  <%end%>
+</div>

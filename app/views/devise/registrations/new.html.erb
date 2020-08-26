@@ -1,0 +1,41 @@
+<body>
+  <div class="jumbotron mt-5 overlay-div" style="background:transparent url('https://images.squarespace-cdn.com/content/v1/560fcdf9e4b0c37386d80d4d/1498764830303-TBHE4H1DPK27FVL7J1HE/ke17ZwdGBToddI8pDm48kK6xQKGD9tHZJt3N0T2sm_wUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcLUyxEhW5TrfdnZKrXzDAD4SaBxIbSQWXWzwQ_5W8ZhdyQn0KDvBq_eDYjIF7LHdO/Gamache_Melissa_Portfolio+-+Image+1.jpg?format=1000w') no-repeat center center /cover">
+    <div class="container" >
+    <h1 class="display-3 mb-2"> M'inscrire au site </h1>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Prénom" %><br />
+        <%= f.text_field :first_name %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Nom" %><br />
+        <%= f.text_field :last_name %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Valider" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>

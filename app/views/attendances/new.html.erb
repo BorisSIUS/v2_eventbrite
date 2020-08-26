@@ -1,0 +1,9 @@
+<body>
+    <div class="jumbotron mt-5 overlay-div" style="background:transparent url('https://payload.cargocollective.com/1/10/350538/13762374/17-IDEO-orange_1527.jpg') no-repeat center center /cover">
+      <div class="container" >
+        <h1 class="display-3 mb-2">Participer à l'evennement</h1>
+        <p>Cout de la participation <%= @event.price%> € </p>
+        <%= link_to "Payer avec Strip", new_event_charge_path(@event.id), class: "btn btn-primary"%>
+        </div>
+    </div>
+</body>

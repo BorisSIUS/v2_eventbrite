@@ -1,0 +1,9 @@
+
+<% @page_title = 'Profile' %>
+<%= render 'shared/skinny_banner' %>
+<%= render 'show' %>
+<% if @events %>
+  </br>
+  <h3 class='container '>Evénements organisés:</h3>
+  <%= render 'shared/event_index'%>
+<% end %>

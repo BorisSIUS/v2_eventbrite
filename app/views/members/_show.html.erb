@@ -1,0 +1,26 @@
+<div class="container mb-3" >
+  <div class='card'>
+    <div class='card-body'>
+      <div class='d-flex flex-wrap'>
+          <%= image_tag @user.avatar, alt: 'avatar', class: 'm-2 rounded'%>
+        <div class='align-self-center'>
+          <p><b> Prénom : </b><%=@user.first_name%> </p>
+          <p><b> Nom :</b> <%=@user.last_name%> </p>
+          <p><b> Email :</b> <%=@user.email%> </p> 
+        </div>
+        <p><b> Bio : </b><%=@user.description%></p>
+      </div>
+    </div>
+    <div class='card-footer'>
+      <div class='card-bottom d-flex flex-wrap justify-content-center'>
+        <% if current_user == @user %>
+          <%= link_to "Mettre à jour le profil", edit_member_path(@user.id), class:'btn btn-primary m-1'%>
+          <%= link_to "changer l'email/password", edit_user_registration_path, class:'btn btn-primary m-1'%>
+        <% end %>
+        <% if current_user.web_master && current_user == @user%>
+          <%= link_to "Panneau de maître de la toile", web_master_index_path, class:'btn btn-warning m-1'%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

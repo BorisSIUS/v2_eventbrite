@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  <div class="jumbotron mt-5 overlay-div" style="background:transparent url('https://cdn.lundlund.com/ll/large/83898/www.lundlund.com%20-%20arket%202.jpg') no-repeat center center /cover">
+    <div class="container" >
+    <h1 class="display-3 mb-2">Salut <%= @user.first_name %> !</h1>
+    <p>
+      <%= @event.title %>A été recalé par l'équipe de modération. 
+    </p>
+    <p>
+      Pour accéder à ton espace organisateur, connecte-toi via : <%= @url %>.
+    </p>
+    <p> À très vite sur monsite.fr !
+  </body>
+</html>

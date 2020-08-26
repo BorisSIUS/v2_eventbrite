@@ -1,0 +1,21 @@
+<body>
+class overlay_image 
+  <div class="jumbotron mt-5 overlay-div" style="background:transparent url('https://trendland.com/wp-content/uploads/2017/07/arrangements-by-melissa-gamache-9.jpg') no-repeat center center /cover">
+    <div class="container" >
+    <h1 class="display-3 mb-2">Resend confirmation instructions <br> près de chez vous</h1>  
+
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Resend confirmation instructions" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+end

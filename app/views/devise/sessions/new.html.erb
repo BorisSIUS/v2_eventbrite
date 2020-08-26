@@ -1,0 +1,30 @@
+<body>
+    <div class="jumbotron mt-5 overlay-div" style="background:transparent url('https://images.squarespace-cdn.com/content/v1/55c98218e4b0423ff5a9b8db/1536073093178-JQMKV57YL74L5ECXHKWY/ke17ZwdGBToddI8pDm48kB4qLkr4mvEnpl9QZjqeuGUUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcKnAvhYeLw67zFj9eFMNQ--9eIYFJdMn_8giHBSHNMuANhNfcOYbSg8v0XteT6FSc/15.2.2018_ss18_TT_WhiteBONE_Colours_TOMB_040454473-min.jpg?format=2500w') no-repeat center center /cover">
+      <div class="container" >
+        <h1 class="display-3 mb-2">Accédez à votre profil</h1>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Je me connecte", class: "actions btn btn-primary btn-lg mt-3 mb-3" %>
+  </div>
+  <div>
+<% end %>
+<%= render "devise/shared/links" %>
+</div>

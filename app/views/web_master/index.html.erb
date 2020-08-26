@@ -1,0 +1,45 @@
+
+<div class='card'>
+    <h1>Madame/Monsieur <%= current_user.last_name %> Event-bride vous souhaite la bienvenue.</h1>
+    <p>Vous êtes autentifié en tant que maitre de la toile.</p>
+</div>
+<h1> Actions disponibles: </h1>
+<%= link_to "Evennements archivés", archived_event_index_path, class: "btn btn-secondary"%>
+<%= link_to "Liste des membres", members_path, class: "btn btn-secondary"%>
+<div class='dark'>
+<%= link_to "Nouveau evenements canditats", promotions_path, class: "btn btn-warning"%>
+<div class='btn btn-warning'><%= @new_events.length %> </div>
+</div>
+<div class='card'>
+    <h5 class='card-title'>Voire le profile</h5>
+    <div class='card_body'>
+        <%= form_with do |f|%>
+            <label>Email</label>
+            <%= text_field_tag(:show)%>
+            <%= submit_tag("Voire")%>
+        <% end %>
+    </div>
+    </div>
+</div>
+<div class='card'>
+    <h5 class='card-title'>Supprimer le profile</h5>
+    <div class='card_body'>
+        <%= form_with do |f|%>
+            <label>Email</label>
+            <%= text_field_tag(:delete)%>
+            <%= submit_tag("supprimer")%>
+        <% end %>
+    </div>
+    </div>
+</div>
+<div class='card'>
+    <h5 class='card-title'>Editer le profile</h5>
+    <div class='card_body'>
+        <%= form_with do |f|%>
+            <label>Email</label>
+            <%= text_field_tag(:edit)%>
+            <%= submit_tag("editer")%>
+        <% end %>
+    </div>
+    </div>
+</div>

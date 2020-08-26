@@ -1,0 +1,76 @@
+body {
+    width: 100%;
+    margin: 0px;
+    padding-top: 0px;
+    display: block;
+    background-color: #dee0df;
+}
+
+label{
+   margin-top: 1em;
+}
+
+.overlay_image {
+   opacity: 0.7;
+  }
+
+.jumbotron {
+   width: 100%;
+   padding: 5rem 7rem;
+   margin-top: 10rem;
+   margin-bottom: 3rem;
+   border-radius: 9rem;
+   min-width: 576px;
+   }
+
+.jumbotron-fluid {
+   padding-right: 0;
+   padding-left: 0;
+   border-radius: 0;
+}
+
+nav{
+   box-shadow: 0px 1px 3px grey;
+}
+body, html{
+   height: 100%
+}
+.fat-hero-image{
+   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("event_photo.jpeg");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   position: relative;
+}
+
+.skinny-hero-image{
+   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("small_banner.jpeg");
+   height: 50%;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   position: relative;
+}
+
+.avatar{
+   height: 32px;
+   width: 32px;
+}
+
+.mini-event{
+   height: 100px;
+}
+
+.card-img-top{
+   height: 250px;
+}
+
+.form-group{
+   margin: 3em 1em 5em;
+}
+
+/*footer{
+   position:absolute;
+
+   bottom:0;
+}*/

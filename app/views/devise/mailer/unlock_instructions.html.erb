@@ -1,0 +1,11 @@
+<body>
+<div class="jumbotron mt-5 overlay-div" style="background:transparent url('http://matilde.it/wp-content/uploads/2019/01/thumb-1-1920x1279.jpg') no-repeat center center /cover">
+  <div class="container" >
+  <h1 class="display-3 mb-2">Excès d'envoi d'Email</h1>  
+    <p>Hello <%= @resource.email %>!</p>
+
+    <p>Votre compte a été bloqué car vous avez effectué trop de tentatives infructueuses de mots de passe.</p>
+
+    <p>Click the link below to unlock your account:</p>
+
+    <p><%= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token) %></p>

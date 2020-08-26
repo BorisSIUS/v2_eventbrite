@@ -1,0 +1,35 @@
+<div class='container mt-3 mb-3 d-flex'>
+    <%= form_for @event do |f| %>
+        <label>*Photo</label></br>
+        <%= f.fields_for :scene  do |p| %>
+            <%= p.file_field :scene , :multiple => true, name: :scene , class: '' %>
+        <% end %>
+        <div class="form_group">
+        <label>Nom:</label></br>
+            <%= f.text_field :title, class: 'form_control'%>
+        </div>
+        <div class="form_group">
+            <label>Date:</label></br>
+            <%= f.text_field :start_date, class: 'form_control'%>
+        </div>
+        <div class="form_group">
+            <label>Durée:</label></br>
+            <%= f.text_field :duration, class: 'form_control'%>
+        </div>
+        <div class="form_group">
+            <label>Description:</label></br>
+            <%= f.text_field :description, class: 'form_control'%>
+        </div>
+        <div class="form_group">
+            <label>Prix:</label></br>
+            <%= f.text_field :price, class: 'form_control'%>
+        </div>
+        <div class="form_group">
+            <label>Lieu:</label></br>
+            <%= f.text_field :location, class: 'form_control'%>
+        </div>
+        <div class="form_group">
+            <%= f.submit "Créer", class: "btn btn-primary" %>
+        </div>
+    <% end %>
+</div>

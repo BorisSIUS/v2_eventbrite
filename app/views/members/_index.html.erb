@@ -1,0 +1,13 @@
+</div class='container'>
+    <div class='card m-5'>
+      <% @users.each do |user|%>
+          <div class='m-2'>
+          <hr/>
+          <h5> <%= user.email %></h5>
+          <p> Prénom : <b><%= user.first_name%> euros</b></p>
+          <p> Nom : <b><%= user.last_name%></b></p>
+          <%= link_to "Voire le profil", member_path(user.id), class: "btn btn-primary"%>
+          </div>
+      <% end %>
+    </div>
+</div>

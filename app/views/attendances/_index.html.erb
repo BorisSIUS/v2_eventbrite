@@ -1,0 +1,35 @@
+
+<div class="container">
+  <% if @event.is_admin?(current_user)%>
+    <div class="card w-100 " style="width: 18rem;">
+      <div class="card-header bg-primary text-white">
+        <div class='d-flex flex-wrap justify-content-between'>
+          <div class='my-3'>
+            <h5 class="card-title"><%= @event.title%></h5>
+            <%= link_to "Editer l'evennement", edit_event_path(@event.id), class: "btn btn-info my-1"%>
+            <% if current_user.web_master %>
+              <%= link_to "Supprimer l'evennement", @event, method: :delete, class: "btn btn-warning my-1"%>
+            <% end %>
+          </div>
+          <%= image_tag @event.scene, alt: 'scene', class: 'img-fluid rounded border border-secondary', style: 'height: 10em'%>
+        </div>
+      </div>
+      <div class='card-body'>
+      <p>Participants:</p>
+      <% @attendances.each do |attendance|%>
+        <hr>
+        <div class='d-flex flex-wrap'>
+          <%= image_tag attendance.attendant.avatar, alt: 'scene', class: 'mr-2 img-fluid rounded border border-secondary', style: 'height: 6em'%>
+          <div>
+            <ul>
+            <li><p> email : <b><%= attendance.attendant.email %> </b></p></li>
+            <li><p> Prénom : <b><%= attendance.attendant.first_name%></b></p></li>
+            <li><p> Nom : <b><%= attendance.attendant.last_name%></b></p></li>
+            </ul>
+          </div>
+        </div>
+        <%= link_to "Voire le profil", member_path(attendance.attendant.id), class: "btn btn-primary"%>
+      <% end %>
+      </div>
+  <% end %>
+</div>

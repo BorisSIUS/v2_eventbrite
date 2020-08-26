@@ -1,0 +1,10 @@
+<body>
+    <div class="jumbotron mt-5 overlay-div" style="background:transparent url('https://trendland.com/wp-content/uploads/2017/07/arrangements-by-melissa-gamache-3.jpg') no-repeat center center /cover">
+      <div class="container">
+        <h1 class="display-3 mb-2">Veuillez confirmez votre email </h1>
+
+        <p>Welcome <%= @email %>!</p>
+
+        <p>You can confirm your account email through the link below:</p>
+
+       <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>

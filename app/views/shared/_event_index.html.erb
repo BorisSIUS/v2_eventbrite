@@ -1,0 +1,12 @@
+<div class='container d-flex flex-wrap justify-content-around'>
+  <% @events.each do |i| %>
+    <div class="card m-1 " style="width: 18rem;">
+      <%= image_tag i.scene, alt: 'scene', class: 'card-img-top'%>
+      <div class="card-body">
+        <h5 class="card-title"><%= i.title %></h5>
+        <p class="card-text"><%= truncate(i.description, :length => 100) %></p>
+        <%= link_to 'Fiche', event_path(i.id), class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <%end%>
+</div>
